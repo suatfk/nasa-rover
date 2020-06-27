@@ -1,4 +1,4 @@
-package com.rover;
+package com.rover.app;
 
 import com.rover.app.Plateau;
 import org.junit.Test;
@@ -63,7 +63,7 @@ public class PlateauTest {
         Plateau plateau = Plateau.from(12, 5);
 
         int calibratedXCoordinate = plateau.reCalibreYCoordinate(5);
-        assertEquals(0, calibratedXCoordinate);
+        assertEquals(5, calibratedXCoordinate);
     }
 
 }

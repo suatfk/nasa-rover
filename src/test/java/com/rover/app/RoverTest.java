@@ -1,11 +1,11 @@
-package com.rover;
+package com.rover.app;
 
 import com.rover.app.Direction;
 import com.rover.app.Plateau;
 import com.rover.app.Rover;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 
@@ -158,7 +158,7 @@ public class RoverTest {
         rover.move();
 
         assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
+        assertEquals(5, rover.getY());
         assertEquals("N", rover.getHeading().name());
     }
 

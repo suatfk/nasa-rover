@@ -1,4 +1,4 @@
-package com.rover;
+package com.rover.app;
 
 
 import com.rover.app.Direction;
