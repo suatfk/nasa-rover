@@ -1,11 +1,10 @@
 package com.rover.app;
 
-import com.rover.app.Plateau;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PlateauTest {
@@ -65,5 +64,4 @@ public class PlateauTest {
         int calibratedXCoordinate = plateau.reCalibreYCoordinate(5);
         assertEquals(5, calibratedXCoordinate);
     }
-
 }

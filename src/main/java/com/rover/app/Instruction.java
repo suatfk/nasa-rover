@@ -9,8 +9,17 @@ public class Instruction {
 
     private Rover rover;
 
-    public void execute(){
-        switch (command){
+    public static Instruction from(String command, Rover rover) {
+        return new Instruction(command, rover);
+    }
+
+    private Instruction(String command, Rover rover) {
+        this.command = command;
+        this.rover = rover;
+    }
+
+    public void execute() {
+        switch (command) {
             case "L":
                 rover.turnLeft();
                 return;
@@ -23,14 +32,5 @@ public class Instruction {
             default:
                 throw new RuntimeException("Not valid Instruction");
         }
-    }
-
-    private Instruction(String command, Rover rover) {
-        this.command = command;
-        this.rover = rover;
-    }
-
-    public static Instruction from(String command, Rover rover){
-        return new Instruction(command, rover);
     }
 }

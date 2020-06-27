@@ -19,8 +19,8 @@ public enum Direction {
         this.degree = degree;
     }
 
-    public static Direction fromDegree(int degree){
-        switch (degree){
+    public static Direction fromDegree(int degree) {
+        switch (degree) {
             case 0:
                 return N;
             case 90:

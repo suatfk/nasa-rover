@@ -19,7 +19,7 @@ public class Plateau {
     }
 
     public int reCalibreXCoordinate(int x) {
-        if (x >= 0 && x <= this.getMax_X()){
+        if (x >= 0 && x <= this.getMax_X()) {
             return x;
         }
 
@@ -32,7 +32,7 @@ public class Plateau {
     }
 
     public int reCalibreYCoordinate(int y) {
-        if (y >= 0 && y <= this.getMax_Y()){
+        if (y >= 0 && y <= this.getMax_Y()) {
             return y;
         }
 

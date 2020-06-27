@@ -1,7 +1,5 @@
 package com.rover.app;
 
-import com.rover.app.Instruction;
-import com.rover.app.Rover;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -47,5 +45,4 @@ public class InstructionTest {
 
         instruction.execute();
     }
-
 }

@@ -78,5 +78,4 @@ public class Rover {
         newHeading %= 360;
         return Direction.fromDegree(newHeading);
     }
-
 }

@@ -24,13 +24,13 @@ public class Application {
         rovers.add(Rover.from(x, y, heading, getPlateau()));
     }
 
-    public void addInstruction(String command, Rover rover){
+    public void addInstruction(String command, Rover rover) {
         assert rover != null;
 
         instructions.add(Instruction.from(command, rover));
     }
 
-    public void execute(){
+    public void execute() {
         instructions.forEach(Instruction::execute);
     }
 }

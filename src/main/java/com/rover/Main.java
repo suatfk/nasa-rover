@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         Application application = new Application();
@@ -33,9 +32,9 @@ public class Main {
 
                 if (fileLineIndex != 0 && fileLineIndex % 2 == 0) {
                     char[] chars = line.toCharArray();
-                    for (int i = 0; i < chars.length; i++){
+                    for (int i = 0; i < chars.length; i++) {
                         application.addInstruction(String.valueOf(chars[i]),
-                                application.getRovers().get( (fileLineIndex - 1) / 2));
+                                application.getRovers().get((fileLineIndex - 1) / 2));
                     }
                 }
 
@@ -48,7 +47,7 @@ public class Main {
 
         application.execute();
 
-        for (Rover rover : application.getRovers()){
+        for (Rover rover : application.getRovers()) {
             rover.printCoordinates();
         }
     }

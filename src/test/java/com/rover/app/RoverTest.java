@@ -1,8 +1,5 @@
 package com.rover.app;
 
-import com.rover.app.Direction;
-import com.rover.app.Plateau;
-import com.rover.app.Rover;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -72,7 +69,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingEast_move_shouldMoveToEast(){
+    public void givenRoverHeadingEast_move_shouldMoveToEast() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 0;
         int y = 4;
@@ -87,7 +84,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingNorth_move_shouldMoveToNorth(){
+    public void givenRoverHeadingNorth_move_shouldMoveToNorth() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 0;
         int y = 4;
@@ -102,7 +99,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingSouth_move_shouldMoveSouth(){
+    public void givenRoverHeadingSouth_move_shouldMoveSouth() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 2;
         int y = 4;
@@ -117,7 +114,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingWest_move_shouldMoveWest(){
+    public void givenRoverHeadingWest_move_shouldMoveWest() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 2;
         int y = 4;
@@ -132,7 +129,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingNegativeCoordinate_move_shouldRecalibrateCoordinate(){
+    public void givenRoverHeadingNegativeCoordinate_move_shouldRecalibrateCoordinate() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 0;
         int y = 4;
@@ -147,7 +144,7 @@ public class RoverTest {
     }
 
     @Test
-    public void givenRoverHeadingResidueCoordinate_move_shouldRecalibrateCoordinate(){
+    public void givenRoverHeadingResidueCoordinate_move_shouldRecalibrateCoordinate() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 0;
         int y = 4;
@@ -161,5 +158,4 @@ public class RoverTest {
         assertEquals(5, rover.getY());
         assertEquals("N", rover.getHeading().name());
     }
-
 }
