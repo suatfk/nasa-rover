@@ -1,67 +1,56 @@
 package com.rover.app;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.assertEquals;
-
 @RunWith(MockitoJUnitRunner.class)
 public class PlateauTest {
 
-    @Test
-    public void givenXCoordinate_reCalibre_shouldCalibreXCoordinate() {
+    @Test(expected = Exception.class)
+    public void givenInvalidXCoordinate_check_shouldThrowException() {
         Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreXCoordinate(-1);
-        assertEquals(4, calibratedXCoordinate);
+        plateau.checkXCoordinate(-1);
+        Assert.fail();
     }
 
-    @Test
-    public void givenYCoordinate_reCalibre_shouldCalibreYCoordinate() {
+    @Test(expected = Exception.class)
+    public void givenInvalidYCoordinate_check_shouldThrowException() {
         Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreYCoordinate(-1);
-        assertEquals(4, calibratedXCoordinate);
+        plateau.checkYCoordinate(-1);
+        Assert.fail();
     }
 
     @Test
-    public void givenXCoordinate_reCalibre_shouldCalibreXCoordinate_1() {
-        Plateau plateau = Plateau.from(12, 5);
+    public void givenValidXCoordinate_check_shouldNotThrowException() {
+        Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreXCoordinate(-4);
-        assertEquals(8, calibratedXCoordinate);
+        plateau.checkXCoordinate(5);
     }
 
     @Test
-    public void givenXCoordinate_reCalibre_shouldCalibreXCoordinateToZero() {
-        Plateau plateau = Plateau.from(12, 5);
+    public void givenValidYCoordinate_check_shouldNotThrowException() {
+        Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreXCoordinate(-12);
-        assertEquals(0, calibratedXCoordinate);
+        plateau.checkYCoordinate(0);
     }
 
-    @Test
-    public void givenXCoordinate_reCalibre_shouldCalibreXCoordinateToOne() {
-        Plateau plateau = Plateau.from(12, 5);
+    @Test(expected = Exception.class)
+    public void givenExceedXCoordinate_check_shouldThrowException() {
+        Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreXCoordinate(-11);
-        assertEquals(1, calibratedXCoordinate);
+        plateau.checkXCoordinate(6);
+        Assert.fail();
     }
 
-    @Test
-    public void givenYCoordinate_reCalibre_shouldCalibreYCoordinateToOne() {
-        Plateau plateau = Plateau.from(12, 5);
+    @Test(expected = Exception.class)
+    public void givenExceedYCoordinate_check_shouldThrowException() {
+        Plateau plateau = Plateau.from(5, 5);
 
-        int calibratedXCoordinate = plateau.reCalibreYCoordinate(6);
-        assertEquals(1, calibratedXCoordinate);
-    }
-
-    @Test
-    public void givenYCoordinate_reCalibre_shouldCalibreYCoordinateToMaxValue() {
-        Plateau plateau = Plateau.from(12, 5);
-
-        int calibratedXCoordinate = plateau.reCalibreYCoordinate(5);
-        assertEquals(5, calibratedXCoordinate);
+        plateau.checkYCoordinate(6);
+        Assert.fail();
     }
 }

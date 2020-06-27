@@ -1,5 +1,6 @@
 package com.rover.app;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -7,6 +8,19 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class InstructionTest {
+
+    @Test(expected = Exception.class)
+    public void givenInValidCommand_create_shouldThrowException() {
+        Rover rover = Mockito.mock(Rover.class);
+        Instruction instruction = Instruction.from("", rover);
+        Assert.fail();
+    }
+
+    @Test(expected = Exception.class)
+    public void givenInValidRover_create_shouldThrowException() {
+        Instruction instruction = Instruction.from("L", null);
+        Assert.fail();
+    }
 
     @Test
     public void givenLInstruction_execute_roverShouldTurnLeft() {

@@ -1,7 +1,9 @@
 package com.rover.app;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -128,8 +130,8 @@ public class RoverTest {
         assertEquals("W", rover.getHeading().name());
     }
 
-    @Test
-    public void givenRoverHeadingNegativeCoordinate_move_shouldRecalibrateCoordinate() {
+    @Test(expected = Exception.class)
+    public void givenRoverHeadingNegativeCoordinate_move_shouldThrowException() {
         Plateau plateau = Plateau.from(5, 5);
         int x = 0;
         int y = 4;
@@ -137,10 +139,7 @@ public class RoverTest {
         Rover rover = Rover.from(x, y, west, plateau);
 
         rover.move();
-
-        assertEquals(4, rover.getX());
-        assertEquals(4, rover.getY());
-        assertEquals("W", rover.getHeading().name());
+        Assert.fail();
     }
 
     @Test
@@ -157,5 +156,18 @@ public class RoverTest {
         assertEquals(0, rover.getX());
         assertEquals(5, rover.getY());
         assertEquals("N", rover.getHeading().name());
+    }
+
+    @Test
+    public void givenRover_move_shouldCheckCoordinates() {
+        Plateau plateau = Mockito.mock(Plateau.class);
+        Rover rover = Mockito.spy(Rover.class);
+        rover.setHeading(Direction.valueOf("W"));
+        rover.setPlateau(plateau);
+
+        rover.move();
+
+        Mockito.verify(plateau).checkXCoordinate(Mockito.anyInt());
+        Mockito.verify(plateau).checkYCoordinate(Mockito.anyInt());
     }
 }

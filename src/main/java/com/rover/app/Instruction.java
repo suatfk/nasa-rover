@@ -2,6 +2,8 @@ package com.rover.app;
 
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public class Instruction {
 
@@ -10,6 +12,13 @@ public class Instruction {
     private Rover rover;
 
     public static Instruction from(String command, Rover rover) {
+        if (command == null || command.isEmpty()) {
+            throw new RuntimeException("Command cannot be empty");
+        }
+
+        if (Objects.isNull(rover)) {
+            throw new RuntimeException("Rover cannot be empty");
+        }
         return new Instruction(command, rover);
     }
 

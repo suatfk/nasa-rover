@@ -18,7 +18,9 @@ public class Rover {
     private Plateau plateau;
 
     public static Rover from(int x, int y, Direction heading, Plateau plateau) {
-        return new Rover(x, y, heading, plateau);
+        Rover rover = new Rover(x, y, heading, plateau);
+        rover.checkCoordinates();
+        return rover;
     }
 
     private Rover(int x, int y, Direction heading, Plateau plateau) {
@@ -38,16 +40,16 @@ public class Rover {
 
     public void move() {
         internalMove();
-        reCalibrateCoordinates();
+        checkCoordinates();
     }
 
     public void printCoordinates() {
         System.out.println(getX() + " " + getY() + " " + getHeading());
     }
 
-    private void reCalibrateCoordinates() {
-        setX(plateau.reCalibreXCoordinate(getX()));
-        setY(plateau.reCalibreYCoordinate(getY()));
+    private void checkCoordinates() {
+        plateau.checkXCoordinate(getX());
+        plateau.checkYCoordinate(getY());
     }
 
     private void internalMove() {

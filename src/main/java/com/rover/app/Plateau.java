@@ -18,29 +18,16 @@ public class Plateau {
         this.max_Y = max_Y;
     }
 
-    public int reCalibreXCoordinate(int x) {
-        if (x >= 0 && x <= this.getMax_X()) {
-            return x;
+    public void checkXCoordinate(int x) {
+        if (x < 0 || x > this.getMax_X()) {
+            throw new RuntimeException("Not valid X coordinate. Coordinate Value X: "
+                    + x + " Valid Interval: " + "[0," + getMax_X() + "]" + "[0," + getMax_Y() + "]");
         }
-
-        if (x < 0) {
-            x += this.getMax_X();
-        }
-
-        x %= this.getMax_X();
-        return x;
     }
 
-    public int reCalibreYCoordinate(int y) {
-        if (y >= 0 && y <= this.getMax_Y()) {
-            return y;
+    public void checkYCoordinate(int y) {
+        if (y < 0 || y > this.getMax_Y()) {
+            throw new RuntimeException("Not valid Y coordinate");
         }
-
-        if (y < 0) {
-            y += this.getMax_Y();
-        }
-
-        y %= this.getMax_Y();
-        return y;
     }
 }
