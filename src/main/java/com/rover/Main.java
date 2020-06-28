@@ -16,7 +16,8 @@ public class Main {
         Application application = new Application();
 
         int fileLineIndex = 0;
-        File inputFile = new File(Application.class.getClassLoader().getResource("exampleInput.txt").getFile());
+        //File inputFile = new File(Application.class.getClassLoader().getResource("exampleInput.txt").getFile());
+        File inputFile = new File(args[0]);
         try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
             String line;
             while ((line = br.readLine()) != null) {
